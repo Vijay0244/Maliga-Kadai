@@ -18,6 +18,7 @@ export const useProductStore = create((set, get) =>({
 
     fetchProducts: async() =>{
         set({ isFetchingProducts: true })
+        const { setError } = get()
         try{
             const response = await Axios.get(`/product/get/all`)
             if(response.data.success){
@@ -35,7 +36,7 @@ export const useProductStore = create((set, get) =>({
 
     addProducts: async(name, costPrice, sellingPrice, date, category, unit) =>{
         set({ isAddingProducts: true })
-        const { products } = get()
+        const { products, setError } = get()
         try{
             const response = await Axios.post('/product/add', {name: name, costPrice: costPrice, sellingPrice: sellingPrice, date: date, category: category, unit: unit})
             if(response.data.success){
@@ -54,7 +55,7 @@ export const useProductStore = create((set, get) =>({
 
     editProducts: async(productId, name, costPrice, sellingPrice, category, unit) =>{
         set({ isEditingProducts: true })
-        const { products } = get()
+        const { products, setError } = get()
         try{
             const response = await Axios.put(`/product/edit/${productId}`, {name: name, costPrice: costPrice, sellingPrice: sellingPrice, category: category, unit: unit})
             if(response.data.success){
@@ -75,7 +76,7 @@ export const useProductStore = create((set, get) =>({
 
     deleteProducts: async(productId) =>{
         set({ isDeletingProducts: true })
-        const { products } = get()
+        const { products, setError } = get()
         try{
             const response = await Axios.delete(`/product/delete/${productId}`)
             if(response.data.success){

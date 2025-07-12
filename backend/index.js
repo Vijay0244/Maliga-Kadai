@@ -11,7 +11,7 @@ const PORT = process.env.PORT
 
 app.use(cors({
     origin: function (origin, callback) {
-        const allowedOrigins = process.env.FRONTEND_USER_URL
+        const allowedOrigins = process.env.FRONTEND_URL
 
         if(!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")){
             callback(null, true)
