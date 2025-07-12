@@ -10,9 +10,18 @@ const connectDb = require('./config/connectDb')
 const PORT = process.env.PORT
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    origin: function (origin, callback) {
+        const allowedOrigins = process.env.FRONTEND_USER_URL
+
+        if(!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")){
+            callback(null, true)
+        } 
+        else{
+            callback(new Error("CORS not allowed for: " + origin))
+        }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
