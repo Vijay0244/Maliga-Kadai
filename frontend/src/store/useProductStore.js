@@ -75,7 +75,7 @@ export const useProductStore = create((set, get) =>({
     },
 
     deleteProducts: async(productId) =>{
-        set({ isDeletingProducts: true })
+        set({ isDeletingProducts: productId })
         const { products, setError } = get()
         try{
             const response = await Axios.delete(`/product/delete/${productId}`)
