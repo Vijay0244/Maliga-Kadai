@@ -49,7 +49,7 @@ const AddProduct = () => {
 
     const now = new Date()
     const timeStr = now.toTimeString().split(' ')[0]
-    const fullDate = `${formData.date}T${timeStr}`
+    const fullDate = new Date(`${formData.date}T${timeStr}`).toISOString()
 
     await addProducts(formData.name, formData.costPrice, formData.sellingPrice, fullDate, formData.category, formData.unit)
     navigate("/")
