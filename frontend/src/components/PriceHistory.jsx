@@ -11,7 +11,7 @@ const PriceHistory = ({ sortedPriceHistory }) => {
                         <h3 className="text-base font-semibold text-gray-700 mb-4">Price Trend</h3>
                         <PriceGraph data={sortedPriceHistory} />
                     </>} */}
-                    <div className={`space-y-3 ${sortedPriceHistory.length > 1 ? 'mt-10' : ''}`}>
+                    <div className={`space-y-3`}>
                         {sortedPriceHistory.map((history, index) => {
                             const profit = parseFloat(history.sellingPrice) - parseFloat(history.costPrice);
                             const profitMargin = ((profit / parseFloat(history.costPrice)) * 100).toFixed(1);
