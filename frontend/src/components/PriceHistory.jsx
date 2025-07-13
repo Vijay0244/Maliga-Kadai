@@ -9,7 +9,7 @@ const PriceHistory = ({ sortedPriceHistory }) => {
                   <>
                     {sortedPriceHistory.length > 1 && <>
                         <h3 className="text-base font-semibold text-gray-700 mb-4">Price Trend</h3>
-                        <PriceGraph data={sortedPriceHistory} />
+                        <PriceGraph data={sortedPriceHistory.reverse()} />
                     </>}
                     <div className={`space-y-3 ${sortedPriceHistory.length > 1 ? 'mt-10' : ''}`}>
                         {sortedPriceHistory.map((history, index) => {
