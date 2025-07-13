@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Ca
 import { formatDate, formatPrice } from '../utils/helper';
 
 const PriceGraph = ({ data }) => {
-    const chartData = data.map((item) => ({
+    const chartData = data.reverse().map((item) => ({
         date: formatDate(item.date),
         profit: parseFloat(item.sellingPrice) - parseFloat(item.costPrice),
         profitMargin: ((parseFloat(item.sellingPrice) - parseFloat(item.costPrice)) / parseFloat(item.costPrice)) * 100
