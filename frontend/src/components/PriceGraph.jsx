@@ -3,7 +3,6 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Ca
 import { formatDate, formatPrice } from '../utils/helper';
 
 const PriceGraph = ({ data }) => {
-    console.log("PriceGraph data:", data)
     const chartData = data.map((item) => ({
         date: formatDate(item.date),
         profit: parseFloat(item.sellingPrice) - parseFloat(item.costPrice),

@@ -47,7 +47,7 @@ const AddProduct = () => {
       return setError("Selling Price cannot be negative")
     }
 
-    const now = new Date();
+    const now = new Date()
     const timeStr = now.toTimeString().split(' ')[0]
     const fullDate = `${formData.date}T${timeStr}`
 

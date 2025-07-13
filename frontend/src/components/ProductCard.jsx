@@ -1,7 +1,7 @@
 import React from "react";
 import { formatDate } from "../utils/helper";
 import { useProductStore } from "../store/useProductStore";
-import { Loader } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
           Edit
         </Link>
         <button onClick={() => deleteProducts(product._id)} disabled={isDeletingProducts} className="flex-1 flex justify-center cursor-pointer disabled:cursor-not-allowed items-center gap-x-2 bg-red-600 text-white px-3 py-2 rounded-md text-sm hover:bg-red-700 transition-colors disabled:opacity-50">
-          {isDeletingProducts == product._id ? <><Loader className="animate-spin size-5" /> Deleting...</> : "Delete"}
+          {isDeletingProducts == product._id ? <><Loader2 className="animate-spin size-5" /> Deleting...</> : "Delete"}
         </button>
       </div>
     </div>
