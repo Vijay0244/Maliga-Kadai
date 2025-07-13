@@ -7,10 +7,10 @@ const PriceHistory = ({ sortedPriceHistory }) => {
         <div className="bg-gray-50 rounded-md p-4">
             {sortedPriceHistory.length > 0 ? (
                   <>
-                    {sortedPriceHistory.length > 1 && <>
+                    {/* {sortedPriceHistory.length > 1 && <>
                         <h3 className="text-base font-semibold text-gray-700 mb-4">Price Trend</h3>
                         <PriceGraph data={sortedPriceHistory} />
-                    </>}
+                    </>} */}
                     <div className={`space-y-3 ${sortedPriceHistory.length > 1 ? 'mt-10' : ''}`}>
                         {sortedPriceHistory.map((history, index) => {
                             const profit = parseFloat(history.sellingPrice) - parseFloat(history.costPrice);
